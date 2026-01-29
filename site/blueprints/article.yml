@@ -1,0 +1,20 @@
+title: Article
+options:
+  template: false
+fields:
+  title:
+    label: Title
+    type: text
+  date:
+    label: Date
+    type: date
+  tags:
+    label: Tags
+    type: tags
+  cover:
+    label: Cover Image
+    type: files
+  text:
+    label: Text
+    type: textarea
+    size: large
