@@ -17,6 +17,12 @@
   </span>
 </div>
 
+<?php if ($page->cover()->toFile()): ?>
+<div class="article-cover">
+  <?= $page->cover()->toFile()->lazyImage([400, 800, 1200], 'cover-image') ?>
+</div>
+<?php endif ?>
+
 <div id="post" class="post-content">
   <?= $page->text()->kirbytext() ?>
 </div>

@@ -224,6 +224,28 @@
   .archive-list li {
     @apply my-2;
   }
+  
+  /* Lazy loading image styles */
+  img.lazyload {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+    filter: blur(5px);
+  }
+  
+  img.lazyloaded {
+    opacity: 1;
+    filter: blur(0);
+    transition: opacity 0.3s ease-in, filter 0.3s ease-in;
+  }
+  
+  /* Article cover image */
+  .article-cover {
+    @apply mb-8;
+  }
+  
+  .article-cover img {
+    @apply w-full h-auto;
+  }
 }
 
 @layer utilities {
