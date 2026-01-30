@@ -1,5 +1,8 @@
 <?php snippet('header') ?>
 
+<!-- Reading Progress Bar -->
+<div id="reading-progress" class="reading-progress"><div class="reading-progress-bar"></div></div>
+
 <!-- ARTICLE PAGE -->
 <a href="/blog" class="back-link">&larr; BACK TO BLOG</a>
 

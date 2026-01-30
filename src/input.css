@@ -413,6 +413,17 @@
   .theme-toggle.is-light .theme-toggle-dark {
     @apply hidden;
   }
+  
+  /* Reading Progress Bar */
+  .reading-progress {
+    @apply fixed top-0 left-0 w-full h-1 z-50 bg-transparent;
+  }
+  
+  .reading-progress-bar {
+    @apply h-full w-0;
+    background-color: var(--accent-color);
+    transition: width 0.1s ease-out;
+  }
 }
 
 @layer utilities {
