@@ -8,7 +8,7 @@
   </div>
 
   <!-- Lazy loading script -->
-  <script src="/assets/js/lazyload.js" async></script>
+  <script src="<?= $site->cacheBust('js/lazyload.js') ?>" async></script>
   
   <!-- Theme toggle script -->
   <script>
