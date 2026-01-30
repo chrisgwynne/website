@@ -23,4 +23,6 @@
 
 <?php snippet('giscus') ?>
 
+<?php snippet('related-posts') ?>
+
 <?php snippet('footer') ?>
