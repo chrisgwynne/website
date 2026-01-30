@@ -10,6 +10,7 @@
   <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="alternate" type="application/rss+xml" href="/feed">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <link rel="shortcut icon" href="/assets/images/logo.svg">
   
   <!-- Prism.js for Syntax Highlighting -->
