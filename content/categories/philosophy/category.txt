@@ -1,0 +1,5 @@
+Title: Philosophy
+
+----
+
+Description: Articles about technology philosophy and mindful computing.

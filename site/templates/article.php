@@ -12,7 +12,7 @@
   <span class="date"><?= $page->date()->toDate('Y-m-d') ?></span>
   <?php if ($page->tags()->isNotEmpty()): ?>
     <?php foreach ($page->tags()->split() as $tag): ?>
-      <span class="tag">#<?= strtolower($tag) ?></span>
+      <a href="/categories/<?= strtolower($tag) ?>" class="tag">#<?= strtolower($tag) ?></a>
     <?php endforeach ?>
   <?php endif ?>
   <span class="reading-time" title="Estimated reading time">
