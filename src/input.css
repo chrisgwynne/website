@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Share Tech Mono font */
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('https://n-o-d-e.live/fonts/font.woff') format('woff'),
+       url('https://n-o-d-e.live/fonts/font.ttf') format('truetype');
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-node-bg text-node-text font-mono antialiased;
+    letter-spacing: 0.1px;
+    font-size: 17px;
+  }
+  
+  a {
+    @apply text-white no-underline;
+  }
+  
+  a:hover {
+    @apply underline;
+  }
+  
+  p {
+    @apply my-2 mb-8;
+    line-height: 1.65;
+  }
+  
+  ul {
+    @apply p-0;
+  }
+  
+  li {
+    @apply my-4 list-none;
+  }
+  
+  img {
+    @apply max-w-full mb-5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white inline-block mb-5 mt-5;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+  
+  h3 {
+    @apply text-lg;
+  }
+  
+  pre, code {
+    @apply bg-node-code;
+  }
+  
+  pre {
+    @apply p-5 my-2 mb-12 overflow-x-auto;
+  }
+  
+  code {
+    @apply px-1;
+  }
+  
+  pre code {
+    @apply p-0 bg-transparent;
+  }
+}
+
+@layer components {
+  .node-container {
+    @apply max-w-node mx-auto px-5;
+  }
+  
+  .node-header {
+    @apply w-full mb-12 border-b border-dotted border-node-border pb-0;
+  }
+  
+  .node-logo {
+    @apply w-10 border border-white block mt-5;
+  }
+  
+  .node-nav {
+    @apply block text-right mb-8 -mt-7;
+  }
+  
+  .node-nav a {
+    @apply mx-1;
+  }
+  
+  .node-nav-separator {
+    @apply mx-1;
+  }
+  
+  .article-list {
+    @apply mb-12;
+  }
+  
+  .article-list li {
+    @apply my-4;
+  }
+  
+  .article-list a {
+    @apply text-node-text;
+  }
+  
+  .article-list a:hover {
+    @apply text-white;
+  }
+  
+  .tag {
+    @apply text-node-text mr-2;
+  }
+  
+  .tag-category {
+    @apply text-node-text mr-2;
+  }
+  
+  .date {
+    @apply text-gray-500 mr-3;
+  }
+  
+  .post-content {
+    @apply max-w-node mb-5 -mt-2 leading-7;
+  }
+  
+  .post-content p {
+    line-height: 1.65;
+  }
+  
+  .back-link {
+    @apply block mb-6;
+  }
+  
+  .meta {
+    @apply text-gray-500 mb-8;
+  }
+  
+  .pagination {
+    @apply mt-12 flex gap-4;
+  }
+  
+  .node-footer {
+    @apply max-w-node mx-auto mt-14 mb-8;
+  }
+  
+  .notification {
+    @apply text-node-bg bg-white px-1;
+  }
+  
+  .code-block {
+    @apply bg-node-code p-5 my-2 mb-8 inline-block w-full;
+  }
+  
+  .important {
+    @apply -ml-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

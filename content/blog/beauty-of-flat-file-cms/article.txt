@@ -1,0 +1,54 @@
+Title: The Beauty of Flat-File CMS
+Date: 2026-01-20
+Tags: cms, webdev, philosophy
+
+----
+
+Text:
+
+In an age of complex database-driven applications, there's something refreshingly simple about flat-file content management. No MySQL, no PostgreSQL, no connection strings to configure. Just text files in folders.
+
+## What is a Flat-File CMS?
+
+Unlike WordPress or Drupal which store content in databases, flat-file systems like Kirby, Grav, and Statamic use the filesystem itself as the database. Content is stored in Markdown or YAML files, organized in directories.
+
+Your content structure:
+
+```
+content/
+├── blog/
+│   ├── post-1/
+│   │   └── article.txt
+│   ├── post-2/
+│   │   └── article.txt
+```
+
+## Advantages
+
+**Version Control**: Content lives in Git. Track changes, revert mistakes, branch experiments.
+
+**Portability**: Move your site by copying files. No database dumps or imports.
+
+**Simplicity**: Fewer moving parts means fewer things to break.
+
+**Performance**: No database queries means faster page loads.
+
+**Security**: No SQL injection vectors when there's no SQL.
+
+## Use Cases
+
+Flat-file systems excel for:
+
+- Personal blogs
+- Documentation sites
+- Portfolio websites
+- Small business sites
+- Landing pages
+
+They're not ideal for massive e-commerce sites or applications requiring complex user relationships, but for content-driven sites, they're perfect.
+
+## The Future
+
+As static site generators like Hugo and Jekyll gain popularity, flat-file CMS systems offer a middle ground - dynamic capabilities with static simplicity.
+
+The best part? You own your content. It's right there, in plain text, forever readable.

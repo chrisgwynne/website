@@ -6,11 +6,39 @@
   <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="alternate" type="application/rss+xml" href="/feed">
+  <link rel="shortcut icon" href="/assets/images/logo.svg">
 </head>
-<body class="bg-[#222] text-[#c8c8c8] font-mono">
-  <nav class="max-w-2xl mx-auto px-6 py-12">
-    <a href="/" class="text-[#fff] hover:underline">Home</a> / 
-    <a href="/blog" class="text-[#fff] hover:underline">Blog</a> / 
-    <a href="/contact" class="text-[#fff] hover:underline">Contact</a>
-  </nav>
-  <main class="max-w-2xl mx-auto px-6">
+<body>
+
+<!-- 
+=============================
+    _   ______  ____  ______
+   / | / / __ \/ __ \/ ____/
+  /  |/ / / / / / / / __/   
+ / /|  / /_/ / /_/ / /___   
+/_/ |_\/____/_____/_____/   
+
+=============================
+-->
+
+  <!-- HEADER SECTION -->
+  <div id="header" class="node-header">
+    <div class="node-container">
+      <a href="/">
+        <img class="node-logo" src="/assets/images/logo.svg" alt="Logo">
+      </a>
+      
+      <div class="node-nav">
+        <a href="/">HOME</a>
+        <span class="node-nav-separator">/</span>
+        <a href="/blog">BLOG</a>
+        <span class="node-nav-separator">/</span>
+        <a href="/contact">CONTACT</a>
+        <span class="node-nav-separator">/</span>
+        <a href="/feed">RSS</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="page">
+    <div id="content" class="node-container">

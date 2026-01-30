@@ -1,6 +1,11 @@
-  </main>
-  <footer class="max-w-2xl mx-auto px-6 py-12 text-gray-600 text-sm">
-    &copy; <?= date('Y') ?> <?= $site->title()->html() ?>
-  </footer>
+    </div><!-- /content -->
+  </div><!-- /page -->
+
+  <div id="footer" class="node-footer">
+    <div class="node-container">
+      <p>&copy; <?= date('Y') ?> <?= $site->title()->html() ?> / Built with <a href="https://getkirby.com">Kirby</a></p>
+    </div>
+  </div>
+
 </body>
 </html>

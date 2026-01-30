@@ -1,0 +1,60 @@
+Title: Building a Minimalist Blog with Kirby
+Date: 2026-01-28
+Tags: kirby, webdev, minimalism
+
+----
+
+Text:
+
+I've been exploring static site generators and flat-file CMS options for a while. The goal was simple: create a fast, distraction-free blog that focuses purely on content. No bloat, no tracking, no unnecessary JavaScript.
+
+After evaluating options like Jekyll, Hugo, and Ghost, I settled on (link: https://getkirby.com text: Kirby CMS). It's a flat-file CMS that offers the simplicity of static sites with the flexibility of dynamic content management.
+
+## Why Kirby?
+
+Kirby offers several advantages:
+
+- **No database required**: Content is stored in text files
+- **Flexible templating**: Uses PHP with a clean, readable syntax
+- **Great admin panel**: When you need it, the panel is intuitive
+- **Developer-friendly**: Easy to customize and extend
+
+## The N-O-D-E Aesthetic
+
+The design inspiration comes from (link: https://n-o-d-e.net text: N-O-D-E) - a technology blog that embraces brutalist/minimalist design principles:
+
+- Monochrome color scheme (#222 background, #c8c8c8 text)
+- Monospace typography (Share Tech Mono)
+- Simple category tags like [HW], [SW], [BL]
+- No images unless necessary
+- Fast loading times
+
+This approach puts content first and removes all visual distractions.
+
+## Implementation Details
+
+The blog uses Tailwind CSS for styling, compiled to a single CSS file. Templates are clean PHP with Kirby's excellent API:
+
+```php
+<?php foreach ($page->children()->sortBy('date', 'desc') as $article): ?>
+  <li>
+    <a href="<?= $article->url() ?>">
+      <span class="tag">[BL]</span>
+      <?= $article->title()->html() ?>
+    </a>
+  </li>
+<?php endforeach ?>
+```
+
+Simple, readable, and maintainable.
+
+## Next Steps
+
+I'll be adding more features over time:
+
+- Full-text search
+- Archive by category
+- Related posts
+- RSS feed improvements
+
+Stay tuned for more updates.

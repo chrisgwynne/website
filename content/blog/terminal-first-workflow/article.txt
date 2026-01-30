@@ -1,0 +1,42 @@
+Title: Terminal-First Workflow
+Date: 2026-01-25
+Tags: productivity, linux, cli
+
+----
+
+Text:
+
+My computing environment has evolved significantly over the years. I've moved from heavy IDEs and GUI applications to a terminal-first approach that maximizes efficiency and minimizes distractions.
+
+## The Stack
+
+- **OS**: Ubuntu / Arch Linux
+- **Editor**: Neovim with minimal config
+- **Terminal**: Alacritty or Kitty
+- **Shell**: Zsh with minimal prompt
+- **Multiplexer**: Tmux
+
+## Why Terminal-First?
+
+There's something powerful about a text-only interface. No notifications popping up. No colorful icons fighting for attention. Just you and your thoughts, flowing through the keyboard.
+
+The terminal forces intentionality. Every command is deliberate. Every action is considered.
+
+## Key Tools
+
+**File Management**: `ranger` or `nnn` for quick navigation
+**Search**: `ripgrep` and `fzf` for finding anything instantly
+**System Monitoring**: `htop`, `btop` for resource awareness
+**Git**: `lazygit` for a pleasant git interface
+
+## The Aesthetic Connection
+
+This approach to computing mirrors the design of this blog - minimal, functional, focused. The N-O-D-E aesthetic isn't just visual; it's a philosophy of stripping away the unnecessary to reveal what matters.
+
+The best tools are invisible. They get out of the way and let you work.
+
+## Resources
+
+- (link: https://github.com/chrisgwynne/dotfiles text: My dotfiles)
+- (link: https://www.vimvalley.com text: Vim Valley)
+- (link: https://github.com/jlevy/the-art-of-command-line text: The Art of Command Line)

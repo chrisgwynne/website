@@ -1,1 +1,5 @@
-Title: Home
+Title: <?= $site->title()->html() ?>
+
+----
+
+Text: A minimalist terminal-style blog focused on technology and software development.
