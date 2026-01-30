@@ -14,5 +14,10 @@ return [
     // Date handler
     'date' => [
         'handler' => 'intl'
+    ],
+    
+    // Image processing
+    'thumbs' => [
+        'driver' => 'im' // Use ImageMagick for better WebP support
     ]
 ];
