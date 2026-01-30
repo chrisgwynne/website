@@ -12,6 +12,9 @@
       <span class="tag">#<?= strtolower($tag) ?></span>
     <?php endforeach ?>
   <?php endif ?>
+  <span class="reading-time" title="Estimated reading time">
+    <?= $page->readingTime() ?>
+  </span>
 </div>
 
 <div id="post" class="post-content">
