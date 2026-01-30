@@ -1,0 +1,102 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: mbstring, intl, gd, imagick
+        coverage: none
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Cache Composer dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.composer/cache/files
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+          
+    - name: Install PHP dependencies
+      run: composer install --no-dev --optimize-autoloader
+      
+    - name: Install Node.js dependencies
+      run: npm ci
+      
+    - name: Build CSS
+      run: npm run build:css
+      
+    - name: Run Kirby health checks
+      run: |
+        php -r "
+          require 'kirby/bootstrap.php';
+          \$kirby = new Kirby\Cms\App([
+            'roots' => [
+              'index' => __DIR__
+            ]
+          ]);
+          echo 'Kirby loads successfully' . PHP_EOL;
+        "
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-files
+        path: |
+          assets/css/style.css
+          vendor/
+        retention-days: 7
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-files
+        
+    - name: Deploy to server
+      # Uncomment and configure for your deployment method
+      # Options: rsync, SSH, FTP, or use a deployment action
+      
+      # Example using rsync (requires secrets configured):
+      # run: |
+      #   rsync -avz --delete \
+      #     --exclude='.git' \
+      #     --exclude='.github' \
+      #     --exclude='node_modules' \
+      #     --exclude='src/' \
+      #     --exclude='.env' \
+      #     ./ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+      # env:
+      #   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      # For now, just echo that deploy would happen
+      run: |
+        echo "Build successful - deployment step ready"
+        echo "Configure deployment secrets and uncomment the rsync command above"
+        echo "Required secrets: DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, SSH_PRIVATE_KEY"
