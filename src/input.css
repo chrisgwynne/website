@@ -195,6 +195,35 @@
   .reading-time {
     @apply text-gray-500 ml-2;
   }
+  
+  /* Archive page styles */
+  .archive-intro {
+    @apply mb-8;
+  }
+  
+  .archive-year {
+    @apply mb-10;
+  }
+  
+  .year-heading {
+    @apply text-2xl text-white mb-4 pb-2 border-b border-dotted border-node-border;
+  }
+  
+  .archive-month {
+    @apply mb-6 ml-2;
+  }
+  
+  .month-heading {
+    @apply text-lg text-node-text mb-3;
+  }
+  
+  .archive-list {
+    @apply p-0 ml-4;
+  }
+  
+  .archive-list li {
+    @apply my-2;
+  }
 }
 
 @layer utilities {
