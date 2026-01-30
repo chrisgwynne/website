@@ -15,6 +15,14 @@
   
   <!-- Prism.js for Syntax Highlighting -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  
+  <!-- Theme initialization - prevents flash of wrong theme -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
 
@@ -46,6 +54,11 @@
         <a href="/contact">CONTACT</a>
         <span class="node-nav-separator">/</span>
         <a href="/feed">RSS</a>
+        <span class="node-nav-separator">/</span>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+          <span class="theme-toggle-light">☀</span>
+          <span class="theme-toggle-dark">☾</span>
+        </button>
       </div>
     </div>
   </div>

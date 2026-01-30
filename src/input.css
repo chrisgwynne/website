@@ -10,15 +10,40 @@
   font-display: swap;
 }
 
+/* CSS Variables for theming */
+:root {
+  --bg-color: #222;
+  --text-color: #c8c8c8;
+  --border-color: #444;
+  --code-bg: #1f1f1f;
+  --heading-color: #ffffff;
+  --link-color: #ffffff;
+  --accent-color: #ffffff;
+}
+
+[data-theme="light"] {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --border-color: #ccc;
+  --code-bg: #eee;
+  --heading-color: #111;
+  --link-color: #000;
+  --accent-color: #000;
+}
+
 @layer base {
   body {
-    @apply bg-node-bg text-node-text font-mono antialiased;
+    @apply font-mono antialiased;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     letter-spacing: 0.1px;
     font-size: 17px;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   a {
-    @apply text-white no-underline;
+    color: var(--link-color);
+    @apply no-underline;
   }
   
   a:hover {
@@ -43,7 +68,8 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply text-white inline-block mb-5 mt-5;
+    color: var(--heading-color);
+    @apply inline-block mb-5 mt-5;
   }
   
   h1 {
@@ -59,7 +85,7 @@
   }
   
   pre, code {
-    @apply bg-node-code;
+    background-color: var(--code-bg);
   }
   
   pre {
@@ -81,11 +107,13 @@
   }
   
   .node-header {
-    @apply w-full mb-12 border-b border-dotted border-node-border pb-0;
+    @apply w-full mb-12 border-b border-dotted pb-0;
+    border-color: var(--border-color);
   }
   
   .node-logo {
-    @apply w-10 border border-white block mt-5;
+    @apply w-10 border block mt-5;
+    border-color: var(--heading-color);
   }
   
   .node-nav {
@@ -109,19 +137,21 @@
   }
   
   .article-list a {
-    @apply text-node-text;
+    color: var(--text-color);
   }
   
   .article-list a:hover {
-    @apply text-white;
+    color: var(--heading-color);
   }
   
   .tag {
-    @apply text-node-text mr-2;
+    @apply mr-2;
+    color: var(--text-color);
   }
   
   .tag-category {
-    @apply text-node-text mr-2;
+    @apply mr-2;
+    color: var(--text-color);
   }
   
   .date {
@@ -153,11 +183,14 @@
   }
   
   .notification {
-    @apply text-node-bg bg-white px-1;
+    @apply px-1;
+    color: var(--bg-color);
+    background-color: var(--heading-color);
   }
   
   .code-block {
-    @apply bg-node-code p-5 my-2 mb-8 inline-block w-full;
+    @apply p-5 my-2 mb-8 inline-block w-full;
+    background-color: var(--code-bg);
   }
   
   .important {
@@ -165,11 +198,13 @@
   }
   
   .related-posts {
-    @apply mt-12 pt-8 border-t border-dotted border-node-border;
+    @apply mt-12 pt-8 border-t border-dotted;
+    border-color: var(--border-color);
   }
   
   .related-posts h3 {
-    @apply mb-4 text-white;
+    @apply mb-4;
+    color: var(--heading-color);
   }
   
   .related-posts ul {
@@ -181,11 +216,11 @@
   }
   
   .related-posts a {
-    @apply text-node-text;
+    color: var(--text-color);
   }
   
   .related-posts a:hover {
-    @apply text-white;
+    color: var(--heading-color);
   }
   
   .related-posts .date {
@@ -206,7 +241,9 @@
   }
   
   .year-heading {
-    @apply text-2xl text-white mb-4 pb-2 border-b border-dotted border-node-border;
+    @apply text-2xl mb-4 pb-2 border-b border-dotted;
+    color: var(--heading-color);
+    border-color: var(--border-color);
   }
   
   .archive-month {
@@ -214,7 +251,8 @@
   }
   
   .month-heading {
-    @apply text-lg text-node-text mb-3;
+    @apply text-lg mb-3;
+    color: var(--text-color);
   }
   
   .archive-list {
@@ -257,7 +295,8 @@
   }
   
   .error-digit {
-    @apply text-white inline-block;
+    @apply inline-block;
+    color: var(--heading-color);
     animation: glitch 2s infinite;
   }
   
@@ -293,7 +332,8 @@
   }
   
   .error-title {
-    @apply text-2xl text-white mb-4;
+    @apply text-2xl mb-4;
+    color: var(--heading-color);
   }
   
   .error-message {
@@ -313,7 +353,7 @@
   }
   
   .error-suggestions a {
-    @apply text-white;
+    color: var(--heading-color);
   }
   
   .error-suggestions a:hover {
@@ -336,6 +376,42 @@
   .search-button {
     @apply bg-white text-node-bg px-4 py-2 font-mono border border-white;
     @apply hover:bg-gray-200 cursor-pointer;
+  }
+  
+  /* Theme toggle button */
+  .theme-toggle {
+    @apply inline-flex items-center justify-center w-8 h-8 p-0 bg-transparent border-0 cursor-pointer;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1;
+    transition: color 0.2s ease;
+  }
+  
+  .theme-toggle:hover {
+    color: var(--heading-color);
+  }
+  
+  .theme-toggle-light,
+  .theme-toggle-dark {
+    @apply block;
+  }
+  
+  /* Default: dark theme - show moon, hide sun */
+  .theme-toggle .theme-toggle-light {
+    @apply hidden;
+  }
+  
+  .theme-toggle .theme-toggle-dark {
+    @apply block;
+  }
+  
+  /* Light theme - show sun, hide moon */
+  .theme-toggle.is-light .theme-toggle-light {
+    @apply block;
+  }
+  
+  .theme-toggle.is-light .theme-toggle-dark {
+    @apply hidden;
   }
 }
 
