@@ -4,7 +4,7 @@ return function ($page, $kirby) {
   $results = null;
 
   if ($query) {
-    $results = $kirby->collection('blog')->search($query);
+    $results = $kirby->collection('blog')->search($query, 'title|text');
   }
 
   return [

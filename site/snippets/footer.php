@@ -53,6 +53,53 @@
     })();
   </script>
   
+  <!-- Search Modal script -->
+  <script>
+    (function() {
+      const modal = document.getElementById('search-modal');
+      const modalInput = document.getElementById('search-modal-input');
+      const modalClose = document.querySelector('.search-modal-close');
+      const modalOverlay = document.querySelector('.search-modal-overlay');
+      
+      function openModal() {
+        modal.classList.add('is-open');
+        modalInput.focus();
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+      
+      // Keyboard shortcut: Cmd/Ctrl + K
+      document.addEventListener('keydown', function(e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          openModal();
+        }
+        
+        // Close on Escape
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+      
+      // Close on overlay click
+      modalOverlay.addEventListener('click', closeModal);
+      
+      // Close on close button click
+      modalClose.addEventListener('click', closeModal);
+      
+      // Handle form submission
+      modal.querySelector('form').addEventListener('submit', function(e) {
+        if (!modalInput.value.trim()) {
+          e.preventDefault();
+        }
+      });
+    })();
+  </script>
+  
   <!-- Prism.js for Syntax Highlighting -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>

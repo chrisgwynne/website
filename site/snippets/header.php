@@ -63,5 +63,21 @@
     </div>
   </div>
 
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-modal-overlay"></div>
+    <div class="search-modal-content">
+      <form action="/search" method="get" class="search-modal-form">
+        <input type="text" name="q" placeholder="Search articles..." class="search-modal-input" autocomplete="off" id="search-modal-input">
+        <button type="button" class="search-modal-close" aria-label="Close search">×</button>
+      </form>
+      <div class="search-modal-hints">
+        <span><kbd>↑↓</kbd> Navigate</span>
+        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>ESC</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
   <div id="page">
     <div id="content" class="node-container">

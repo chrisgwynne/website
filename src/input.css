@@ -424,6 +424,115 @@
     background-color: var(--accent-color);
     transition: width 0.1s ease-out;
   }
+  
+  /* Search Modal */
+  .search-modal {
+    @apply fixed inset-0 z-50 hidden;
+  }
+  
+  .search-modal.is-open {
+    @apply block;
+  }
+  
+  .search-modal-overlay {
+    @apply absolute inset-0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .search-modal-content {
+    @apply relative max-w-2xl mx-auto mt-20 p-6;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .search-modal-form {
+    @apply flex gap-2;
+  }
+  
+  .search-modal-input {
+    @apply flex-1 px-4 py-3 font-mono text-lg;
+    background-color: var(--code-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .search-modal-input:focus {
+    @apply outline-none;
+    border-color: var(--accent-color);
+  }
+  
+  .search-modal-close {
+    @apply w-12 h-12 flex items-center justify-center text-2xl font-mono;
+    color: var(--text-color);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+  }
+  
+  .search-modal-close:hover {
+    color: var(--heading-color);
+    border-color: var(--accent-color);
+  }
+  
+  .search-modal-hints {
+    @apply flex gap-4 mt-4 text-sm;
+    color: var(--text-color);
+  }
+  
+  .search-modal-hints kbd {
+    @apply px-2 py-1;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    font-family: inherit;
+  }
+  
+  /* Search page styles */
+  .search-input-large {
+    @apply w-full max-w-lg px-4 py-3 text-lg;
+    background-color: var(--code-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+  
+  .search-input-large:focus {
+    @apply outline-none;
+    border-color: var(--accent-color);
+  }
+  
+  .search-hints {
+    @apply mb-8;
+    color: var(--text-color);
+  }
+  
+  .search-hints kbd {
+    @apply px-2 py-1;
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+  }
+  
+  .search-no-results {
+    @apply text-center py-8;
+    color: var(--text-color);
+  }
+  
+  .search-results {
+    @apply mt-8;
+  }
+  
+  .search-meta {
+    @apply mb-4 pb-4 border-b;
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+  
+  .search-result-item {
+    @apply mb-6;
+  }
+  
+  .search-excerpt {
+    @apply mt-2 text-sm;
+    color: var(--text-color);
+  }
 }
 
 @layer utilities {
